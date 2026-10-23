@@ -47,3 +47,11 @@ Lokalne sprawdzenie obrazu (wymaga Dockera):
 docker build -t among-the-stands .
 docker run --rm -p 8080:8080 -e PORT=8080 among-the-stands
 ```
+
+## Wdrożenie produkcyjne
+
+Aplikacja: https://amongthestands-production.up.railway.app
+
+Panel projektu: https://railway.com/project/32131362-e329-49cc-aede-de432e8e3287
+
+Usługa Railway jest połączona z gałęzią `main` tego repozytorium. Każdy push na `main` uruchamia automatyczną budowę i wdrożenie. Nie jest przypięta do pojedynczego commita i nie wymaga ręcznego publikowania.
