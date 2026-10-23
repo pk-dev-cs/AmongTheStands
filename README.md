@@ -34,3 +34,16 @@ Stan katalogu: 23 października 2026. Zaimportowano 483 wpisy wystawców, marek 
 Źródła: [strona organizatora](https://ksiazka.krakow.pl/), [katalog wystawców](https://targiksiazki.exposupport.pl/wystawcy), [oficjalny plan PDF](https://targi.krakow.pl/storage/file/core_files/2026/10/14/5de2176b069e1717a494c9f78ddfdb46/KSIAZKA26_plan_hali_www.pdf).
 
 Plan i materiały targowe pochodzą od organizatora. Projekt jest niezależną aplikacją korzystającą z tych materiałów. Zewnętrzne fonty są ładowane z Google Fonts; przy braku połączenia używane są fonty systemowe.
+
+## Railway
+
+Repozytorium zawiera `Dockerfile` uruchamiający aplikację w Nginx oraz `railway.toml` z kontrolą dostępności pod `/`. Serwer korzysta z portu przekazanego przez Railway w zmiennej `PORT` (domyślnie 8080).
+
+Źródłem usługi Railway powinno być repozytorium `pk-dev-cs/AmongTheStands`, gałąź `main`, z włączonym automatycznym wdrażaniem. Powiązanie repozytorium, domena i automatyczne wdrażanie są ustawieniami usługi Railway; sam plik `railway.toml` ich nie tworzy.
+
+Lokalne sprawdzenie obrazu (wymaga Dockera):
+
+```sh
+docker build -t among-the-stands .
+docker run --rm -p 8080:8080 -e PORT=8080 among-the-stands
+```
