@@ -6,6 +6,8 @@ const source=JSON.parse(readFileSync('data/catalog.json','utf8'));
 class Element {
  constructor(){this.style={};this.attrs={};this.children=[];this.value='';this.innerHTML='';this.classes=new Set();this.classList={add:x=>this.classes.add(x),remove:x=>this.classes.delete(x),contains:x=>this.classes.has(x)};}
  setAttribute(k,v){this.attrs[k]=String(v)}
+ getAttribute(k){return this.attrs[k]||"0 0 2122 3000"}
+ addEventListener(){}
  appendChild(c){if(c.parent)c.parent.children=c.parent.children.filter(x=>x!==c);this.children.push(c);c.parent=this;return c}
  replaceChildren(){this.children=[];this.innerHTML=''}
  querySelectorAll(){return []}
